@@ -1,0 +1,27 @@
+{
+    "happy": [
+        "Song 1 - Happy",
+        "Song 2 - Happy",
+        "Song 3 - Happy"
+    ],
+    "sad": [
+        "Song 1 - Sad",
+        "Song 2 - Sad",
+        "Song 3 - Sad"
+    ],
+    "angry": [
+        "Song 1 - Angry",
+        "Song 2 - Angry",
+        "Song 3 - Angry"
+    ],
+    "surprise": [
+        "Song 1 - Surprise",
+        "Song 2 - Surprise",
+        "Song 3 - Surprise"
+    ],
+    "neutral": [
+        "Song 1 - Neutral",
+        "Song 2 - Neutral",
+        "Song 3 - Neutral"
+    ]
+}
