@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotion Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Emotion Detection System</h1>
+
+        <!-- Video feed -->
+        <div class="video-container">
+            <img src="{{ url_for('video_feed') }}" alt="Emotion Detection Feed" id="video-feed">
+        </div>
+
+        <!-- Display the current emotion -->
+        <div id="emotion-display">
+            <h2>Current Emotion: <span id="emotion-text">Detecting...</span></h2>
+        </div>
+
+        <!-- Display the current song suggestion -->
+        <div id="song-suggestion">
+            <h2>Suggested Song: <span id="song-text">Waiting for suggestion...</span></h2>
+        </div>
+    </div>
+
+    <script>
+        // Function to update the emotion and song suggestion on the page
+        function updateEmotionData() {
+            fetch('/get_emotion_data')
+                .then(response => response.json())
+                .then(data => {
+                    // Update emotion
+                    document.getElementById('emotion-text').textContent = data.emotion || 'Detecting...';
+
+                    // Handle song suggestion
+                    let songElement = document.getElementById('song-text');
+                    if (data.song && data.song.startsWith("http")) {
+                        songElement.innerHTML = `<a href="${data.song}" target="_blank">Click here for the song</a>`;
+                    } else if (data.song) {
+                        songElement.textContent = data.song;  // If it's not a URL, just display the song
+                    } else {
+                        songElement.textContent = 'Waiting for suggestion...';  // Fallback text
+                    }
+                })
+                .catch(error => console.error('Error fetching emotion data:', error));
+        }
+
+        // Update the data every 5 seconds
+        setInterval(updateEmotionData, 5000);
+
+        // Initial call to display data immediately
+        updateEmotionData();
+    </script>
+</body>
+</html>

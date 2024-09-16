@@ -1,16 +1,16 @@
 {
     "happy": [
-        "Song 1 - Happy",
-        "Song 2 - Happy",
-        "Song 3 - Happy"
+        "https://www.youtube.com/watch?v=ZbZSe6N_BXs",
+        "https://www.youtube.com/watch?v=ru0K8uYEZWw",
+        "https://www.youtube.com/watch?v=Ntn1-SocNiY"
     ],
     "sad": [
-        "Song 1 - Sad",
+        "https://www.youtube.com/watch?v=ru0K8uYEZWw",
         "Song 2 - Sad",
         "Song 3 - Sad"
     ],
     "angry": [
-        "Song 1 - Angry",
+        "https://www.youtube.com/watch?v=Ntn1-SocNiY",
         "Song 2 - Angry",
         "Song 3 - Angry"
     ],
